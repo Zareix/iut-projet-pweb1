@@ -19,12 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21963e1b-8979-4208-90cc-a339bcc912d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" afterDir="false" />
+    <list default="true" id="21963e1b-8979-4208-90cc-a339bcc912d7" name="Default Changelist" comment="test accueil">
+      <change afterPath="$PROJECT_DIR$/src/Controller/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/connexion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/inscription.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/menuUtilisateur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/admin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/connexion.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/inscription.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/utilisateur/menuUtilisateur.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,10 +159,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\raphc\Documents\IUT INFO\2e ANNEE\SEMESTRE 1\PERIODE A\PWEB\Projet\ProjetPWEB\templates\utilisateur" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -171,8 +185,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602771640371</updated>
-      <workItem from="1602771647229" duration="1676000" />
+      <workItem from="1602771647229" duration="1794000" />
+      <workItem from="1603118187300" duration="127000" />
+      <workItem from="1603291006962" duration="1980000" />
+      <workItem from="1603293101733" duration="12946000" />
     </task>
+    <task id="LOCAL-00001" summary="test accueil">
+      <created>1602774017523</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602774017523</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,15 +213,56 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test accueil" />
+    <option name="LAST_COMMIT_MESSAGE" value="test accueil" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="395" y="91" key="#Inspections" timestamp="1603292728487">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1603292728487" />
     <state x="475" y="55" key="#PHP" timestamp="1602773761709">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="55" key="#PHP/0.0.1536.824@0.0.1536.824" timestamp="1602773761709" />
-    <state x="378" y="135" key="NewPhpClassDialog" timestamp="1602773131738">
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603293452545">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="378" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1602773131738" />
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1603293452545" />
+    <state x="470" y="94" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603291447489">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="470" y="94" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1603291447489" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603292951663">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603292951663" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603303513255">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603303513255" />
+    <state x="378" y="135" key="NewPhpClassDialog" timestamp="1603303998821">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="378" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1603303998821" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1603292646045">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603292646045" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1603296169318">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603296169318" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602774020104">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1602774020104" />
+    <state x="478" y="11" width="579" height="801" key="find.popup" timestamp="1603296097689">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603296097689" />
   </component>
 </project>

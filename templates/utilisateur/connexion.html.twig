@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container mt-4">
+    <!--Connexion-->
+    <div class="card mx-auto mt-3" style="width : 60%">
+        <div class="card-header text-center">
+            <h2>Connexion</h2>
+        </div>
+        <div class="card-body">
+            <form action="/connexion" method="post" class="text-center">
+                <div class="input-group mb-3 mx-auto col-8">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nom :</span>
+                    </div>
+                    <input name="nom" type="text" class="form-control" value="{{ nom }}">
+                </div>
+                <div class="input-group mb-3 mx-auto col-8">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Mot de passe :</span>
+                    </div>
+                    <input name="mdp" type="password" class="form-control" value="{{ mdp }}">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2 ml-3">Valider</button>
+                <div id="m" class="col-5 text-justify mx-auto ml-3 text-danger">
+                    <?php echo $msgCo; ?>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--End connexion-->
+</div>
+</body>
+
+</html>

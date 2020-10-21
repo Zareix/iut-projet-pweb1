@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="card mx-auto mt-3" style="width : 60%">
+    <div class="card-header text-center">
+        <h2>Menu Administrateur</h2>
+    </div>
+    <div class="card-body">
+        <div class ="card">
+            <h3 class="m-3">Ajouter un véhicule</h3>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label>Type de véhicule</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantité</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Caractéristiques</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Etat de la location</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group-prepend">
+                            <span>Photo</span>
+                        </div>
+                        <div class="custom-file">
+                            <label class="custom-file-label">Choisissez une photo</label>
+                            <input type="file" class="custom-file-input">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3>Tout les véhicules disponibles</h3>
+                //TODO
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Photo</text>
+                            </svg>
+                            <div class="card-body">
+                                <p class="card-text">Description du véhicule</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger btn-outline-secondary">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Photo</text>
+                            </svg>
+                            <div class="card-body">
+                                <p class="card-text">Description du véhicule</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger btn-outline-secondary">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c"/>
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Photo</text>
+                            </svg>
+                            <div class="card-body">
+                                <p class="card-text">Description du véhicule</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger btn-outline-secondary">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form action="/connexion" method="post">
+                    <h3>Choissiez une entreprise</h3>
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Entreprise 1</option>
+                            <option>Entreprise 2</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Confirmer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
