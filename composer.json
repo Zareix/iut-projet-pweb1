@@ -22,7 +22,7 @@
         "symfony/form": "*",
         "symfony/framework-bundle": "*",
         "symfony/http-client": "*",
-        "symfony/intl": "*",
+        "symfony/intl": "5.1.*",
         "symfony/mailer": "*",
         "symfony/mime": "*",
         "symfony/monolog-bundle": "^3.1",

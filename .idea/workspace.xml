@@ -20,18 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21963e1b-8979-4208-90cc-a339bcc912d7" name="Default Changelist" comment="test accueil">
-      <change afterPath="$PROJECT_DIR$/src/Controller/admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/connexion.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/inscription.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/menuUtilisateur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/utilisateur/admin.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/utilisateur/connexion.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/utilisateur/inscription.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/utilisateur/menuUtilisateur.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/menuUtilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/menuUtilisateur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Facture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Facture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Vehicule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vehicule.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utilisateur/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utilisateur/connexion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/connexion.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utilisateur/inscription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/inscription.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/utilisateur/menuUtilisateur.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/menuUtilisateur.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,8 +166,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../Dictionnaires/english3.dic" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -177,7 +182,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="2" Folder0="C:\Users\raphc\Documents\Dictionnaires" Folder1="C:\Users\raphc\Documents\Dictionnaires" CustomDictionaries="2" CustomDictionary0="C:\Users\raphc\Documents\Dictionnaires\fr_FR.dic" CustomDictionary1="C:\Users\raphc\Documents\Dictionnaires\english3.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="21963e1b-8979-4208-90cc-a339bcc912d7" name="Default Changelist" comment="" />
@@ -189,6 +194,8 @@
       <workItem from="1603118187300" duration="127000" />
       <workItem from="1603291006962" duration="1980000" />
       <workItem from="1603293101733" duration="12946000" />
+      <workItem from="1603368152280" duration="5918000" />
+      <workItem from="1603374100713" duration="973000" />
     </task>
     <task id="LOCAL-00001" summary="test accueil">
       <created>1602774017523</created>
@@ -244,6 +251,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603303513255" />
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1603371891376">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603371891376" />
     <state x="378" y="135" key="NewPhpClassDialog" timestamp="1603303998821">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -252,10 +263,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1603292646045" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1603296169318">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1603371892575">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603296169318" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603371892575" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1602774020104">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -264,5 +275,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603296097689" />
+    <state x="486" y="184" key="refactoring.ChangeSignatureDialog" timestamp="1603371047633">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="486" y="184" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1603371047633" />
   </component>
 </project>

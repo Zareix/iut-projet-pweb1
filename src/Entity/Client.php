@@ -8,8 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  */
-class Client
-{
+class Client {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -32,42 +31,35 @@ class Client
      */
     private $email;
 
-    public function getId(): ?int
-    {
+    public function getId(): ?int {
         return $this->id;
     }
 
-    public function getNom(): ?string
-    {
+    public function getNom(): ?string {
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
-    {
+    public function setNom(string $nom): self {
         $this->nom = $nom;
 
         return $this;
     }
 
-    public function getMdp(): ?string
-    {
+    public function getMdp(): ?string {
         return $this->mdp;
     }
 
-    public function setMdp(string $mdp): self
-    {
+    public function setMdp(string $mdp): self {
         $this->mdp = $mdp;
 
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
+    public function getEmail(): ?string {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
-    {
+    public function setEmail(string $email): self {
         $this->email = $email;
 
         return $this;

@@ -8,8 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=VehiculeRepository::class)
  */
-class Vehicule
-{
+class Vehicule {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -42,66 +41,55 @@ class Vehicule
      */
     private $photo;
 
-    public function getId(): ?int
-    {
+    public function getId(): ?int {
         return $this->id;
     }
 
-    public function getType(): ?string
-    {
+    public function getType(): ?string {
         return $this->type;
     }
 
-    public function setType(string $type): self
-    {
+    public function setType(string $type): self {
         $this->type = $type;
 
         return $this;
     }
 
-    public function getNb(): ?int
-    {
+    public function getNb(): ?int {
         return $this->nb;
     }
 
-    public function setNb(int $nb): self
-    {
+    public function setNb(int $nb): self {
         $this->nb = $nb;
 
         return $this;
     }
 
-    public function getCaract(): ?string
-    {
+    public function getCaract(): ?string {
         return $this->caract;
     }
 
-    public function setCaract(string $caract): self
-    {
+    public function setCaract(string $caract): self {
         $this->caract = $caract;
 
         return $this;
     }
 
-    public function getLocation(): ?string
-    {
+    public function getLocation(): ?string {
         return $this->location;
     }
 
-    public function setLocation(string $location): self
-    {
+    public function setLocation(string $location): self {
         $this->location = $location;
 
         return $this;
     }
 
-    public function getPhoto(): ?string
-    {
+    public function getPhoto(): ?string {
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
-    {
+    public function setPhoto(string $photo): self {
         $this->photo = $photo;
 
         return $this;

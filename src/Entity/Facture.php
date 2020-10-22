@@ -8,8 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=FactureRepository::class)
  */
-class Facture
-{
+class Facture {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -47,78 +46,65 @@ class Facture
      */
     private $etat;
 
-    public function getId(): ?int
-    {
+    public function getId(): ?int {
         return $this->id;
     }
 
-    public function getIdC(): ?int
-    {
+    public function getIdC(): ?int {
         return $this->idC;
     }
 
-    public function setIdC(int $idC): self
-    {
+    public function setIdC(int $idC): self {
         $this->idC = $idC;
 
         return $this;
     }
 
-    public function getIdV(): ?int
-    {
+    public function getIdV(): ?int {
         return $this->idV;
     }
 
-    public function setIdV(int $idV): self
-    {
+    public function setIdV(int $idV): self {
         $this->idV = $idV;
 
         return $this;
     }
 
-    public function getDateD(): ?\DateTimeInterface
-    {
+    public function getDateD(): ?\DateTimeInterface {
         return $this->dateD;
     }
 
-    public function setDateD(\DateTimeInterface $dateD): self
-    {
+    public function setDateD(\DateTimeInterface $dateD): self {
         $this->dateD = $dateD;
 
         return $this;
     }
 
-    public function getDateF(): ?\DateTimeInterface
-    {
+    public function getDateF(): ?\DateTimeInterface {
         return $this->dateF;
     }
 
-    public function setDateF(\DateTimeInterface $dateF): self
-    {
+    public function setDateF(\DateTimeInterface $dateF): self {
         $this->dateF = $dateF;
 
         return $this;
     }
 
-    public function getValeur(): ?string
-    {
+    public function getValeur(): ?string {
         return $this->valeur;
     }
 
-    public function setValeur(string $valeur): self
-    {
+    public function setValeur(string $valeur): self {
         $this->valeur = $valeur;
 
         return $this;
     }
 
-    public function getEtat(): ?bool
-    {
+    public function getEtat(): ?bool {
         return $this->etat;
     }
 
-    public function setEtat(bool $etat): self
-    {
+    public function setEtat(bool $etat): self {
         $this->etat = $etat;
 
         return $this;

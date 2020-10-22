@@ -4,9 +4,20 @@
 <head>
     <meta charset="utf-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
+
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="/accueil" class="navbar-brand d-flex align-items-center">
+                <strong>LocationVoiture</strong>
+            </a>
+        </div>
+    </div>
+</header>
 <body>
 <div class="container mt-4">
     <!--Connexion-->
@@ -30,7 +41,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary mb-2 ml-3">Valider</button>
                 <div id="m" class="col-5 text-justify mx-auto ml-3 text-danger">
-                    <?php echo $msgCo; ?>
+                    {{ msg }}
                 </div>
             </form>
         </div>

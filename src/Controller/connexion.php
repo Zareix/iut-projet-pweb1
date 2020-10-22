@@ -3,34 +3,31 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Client;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class connexion extends AbstractController
-{
+class connexion extends AbstractController {
     /**
      * @Route ("/connexion", name="connexion")
      */
-    public function Connexion()
-    {
+    public function Connexion() {
         $nom = isset($_POST['nom']) ? ($_POST['nom']) : '';
         $mdp = isset($_POST['mdp']) ? ($_POST['mdp']) : '';
-        $msgCo = "";
+        $msg = "";
 
 
         if (count($_POST) == 0) {
             return $this->render('utilisateur/connexion.html.twig', [
-                'msgCo' => '',
+                'msg' => $msg,
                 'nom' => $nom,
                 'mdp' => $mdp
             ]);
         } else {
             if ($nom == "" || $mdp == "") {
-                $msgCo = "Tout les champs ne sont pas complet.";
+                $msg = "Tout les champs ne sont pas complet.";
                 return $this->render('utilisateur/connexion.html.twig', [
-                    'msgCo' => '',
+                    'msg' => $msg,
                     'nom' => $nom,
                     'mdp' => $mdp
                 ]);
@@ -39,9 +36,9 @@ class connexion extends AbstractController
                 if ($client) {
                     return $this->redirectToRoute('accueilAbo', ['id' => $client->getId()]);
                 } else {
-                    $msgCo = "Utilisateur inconnu";
+                    $msg = "Utilisateur inconnu";
                     return $this->render('utilisateur/connexion.html.twig', [
-                        'msgCo' => '',
+                        'msg' => $msg,
                         'nom' => $nom,
                         'mdp' => $mdp
                     ]);
@@ -51,8 +48,7 @@ class connexion extends AbstractController
 
     }
 
-    function verifIdent($nom, $mdp)
-    {
+    function verifIdent($nom, $mdp) {
         $repository = $this->getDoctrine()->getRepository(Client::class);
 
         $client = $repository->findOneBy([

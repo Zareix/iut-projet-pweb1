@@ -7,16 +7,13 @@ use App\Entity\Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-class inscription extends AbstractController
-{
+class inscription extends AbstractController {
     /**
      * @Route ("/inscription", name="inscription")
      */
-    public function Inscription()
-    {
+    public function Inscription() {
         $nom = isset($_POST['nom']) ? ($_POST['nom']) : '';
         $mdp = isset($_POST['mdp']) ? ($_POST['mdp']) : '';
         $email = isset($_POST['email']) ? ($_POST['email']) : '';
@@ -37,14 +34,15 @@ class inscription extends AbstractController
                     'email' => $email
                 ]);
             else {
+                //session_start();
                 $client = $this->nouvUser($nom, $mdp, $email);
                 return $this->redirectToRoute("accueilAbo", ['id' => $client->getId()]);
+                //return $this->redirectToRoute("accueiltest");
             }
         }
     }
 
-    function verifAll($mdp, $nom, $email, &$msg)
-    {
+    function verifAll($mdp, $nom, $email, &$msg) {
         if ($this->champNul($mdp) || $this->champNul($nom) || $this->champNul($email)) {
             $msg = "Tout les champs ne sont pas complet.";
             return true;
@@ -64,37 +62,25 @@ class inscription extends AbstractController
         return false;
     }
 
-    function champNul($string)
-    {
+    function champNul($string) {
         if ($string == '')
             return true;
         return false;
     }
 
-    function isNotAlphabetic($string)
-    {
+    function isNotAlphabetic($string) {
         if (!preg_match("/^[a-zA-Zëéè\s\-]+$/", $string))
             return true;
         return false;
     }
 
-    function verifMdp($mdp)
-    {
+    function verifMdp($mdp) {
         if (!preg_match('~[0-9]~', $mdp) || strlen($mdp) < 8)
             return true;
         return false;
     }
 
-    function initSession($nom, $mdp, $email)
-    {
-        session_unset();
-        $_SESSION['client']['nom'] = $nom;
-        $_SESSION['client']['mdp'] = $mdp;
-        $_SESSION['client']['email'] = $email;
-    }
-
-    function nouvUser($nom, $mdp, $email)
-    {
+    function nouvUser($nom, $mdp, $email) {
         $entityManager = $this->getDoctrine()->getManager();
 
         //Création entité client
@@ -112,8 +98,7 @@ class inscription extends AbstractController
         return $client;
     }
 
-    function verifIdent($nom, $mdp)
-    {
+    function verifIdent($nom, $mdp) {
         $repository = $this->getDoctrine()->getRepository(Client::class);
 
         $client = $repository->findOneBy([
