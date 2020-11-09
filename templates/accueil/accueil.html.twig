@@ -43,8 +43,12 @@
         <div class="container">
             <h1>Location de voiture</h1>
             {% if client is defined %}
-                <h2>Bienvenue {{ client.getNom() }}</h2>
-                <a href="/menuUtilisateur/{{ client.getId() }}" class="btn btn-primary my-2">Mon Compte</a>
+                {% if (client.getNom == "admin" and client.getMdp == "admin") %}
+                    <a href="/admin" class="btn btn-primary my-2">Panneau loueur</a>
+                {% else %}
+                    <h2>Bienvenue <i>{{ client.getNom() }}<i></h2>
+                    <a href="/menuUtilisateur/id={{ client.getId() }}" class="btn btn-primary my-2">Mon Compte</a>
+                {% endif %}
             {% else %}
                 <a href="/inscription" class="btn btn-primary my-2">Inscription</a>
                 <a href="/connexion" class="btn btn-secondary my-2">Connexion</a>
@@ -54,24 +58,16 @@
 
     <div class="album py-5 bg-light">
         <div class="container">
+            <h2>Véhicules disponibles à la location</h2>
             <div class="row">
-                {% for i in 0..4 %}
+                {% for v in listeVehicules %}
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                 focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Photo</text>
-                            </svg>
+                            <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
                             <div class="card-body">
-                                <p class="card-text">Description</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                                    </div>
-                                </div>
+                                <h3 class="card-text">{{ v.getType() }}</h3>
+                                <p>Caractéristiques : {{ v.getCaract() }}</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>

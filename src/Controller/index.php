@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use App\Entity\Vehicule;
 use Symfony\Bridge\Twig\Node\SearchAndRenderBlockNode;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +23,13 @@ class index extends AbstractController {
      * @Route ("/accueil", name="accueil")
      */
     public function Accueil() {
-        return $this->render("accueil/accueil.html.twig");
+        $repository = $this->getDoctrine()->getRepository(Vehicule::class);
+        $listeVehicules = $repository->findAll();
+
+
+        return $this->render("accueil/accueil.html.twig", [
+            'listeVehicules' => $listeVehicules
+        ]);
     }
 
     /**
@@ -32,8 +39,12 @@ class index extends AbstractController {
         $repository = $this->getDoctrine()->getRepository(Client::class);
         $client = $repository->find($id);
 
+        $repository = $this->getDoctrine()->getRepository(Vehicule::class);
+        $listeVehicules = $repository->findAll();
+
         return $this->render("accueil/accueil.html.twig", [
-            'client' => $client
+            'client' => $client,
+            'listeVehicules' => $listeVehicules
         ]);
     }
 

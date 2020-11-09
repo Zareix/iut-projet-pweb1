@@ -41,6 +41,16 @@ class Vehicule {
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="vehicules")
+     */
+    private $client;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Prix;
+
     public function getId(): ?int {
         return $this->id;
     }
@@ -91,6 +101,30 @@ class Vehicule {
 
     public function setPhoto(string $photo): self {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->Prix;
+    }
+
+    public function setPrix(int $Prix): self
+    {
+        $this->Prix = $Prix;
 
         return $this;
     }

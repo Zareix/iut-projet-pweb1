@@ -32,28 +32,53 @@
         <li class="list-group-item">
             <h2>Mes véhicules</h2>
             <div class="row">
-                {% for i in 0..2 %}
+                {% if(mesVehicules|length == 0) %}
+                    <p class="col-md-4">Vous n'avez aucun véhicule actuellement</p>
+                {% endif %}
+                {% for v in mesVehicules %}
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"/>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
+                            <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to
-                                    additional content. This content is a little bit longer.</p>
+                                <h3 class="card-text">{{ v.getType() }}</h3>
+                                <p>Caractéristiques : {{ v.getCaract() }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <a href="/menuUtilisateur/id={{ client.getId() }}/action=Supprimer({{ v.getId() }})" type="button" class="btn btn-sm btn-outline-secondary">Supprimer</a>
+                                        <a href="/menuUtilisateur/id={{ client.getId() }}/action=Modifier({{ v.getId() }})" type="button" class="btn btn-sm btn-outline-secondary">Modifier</a>
                                     </div>
-                                    <small class="text-muted">9 mins</small>
                                 </div>
                             </div>
                         </div>
                     </div>
+                {% endfor %}
+            </div>
+        </li>
+        <li class="list-group-item">
+            <h2>Autres véhicules disponibles</h2>
+            <div class="row">
+                {% for v in listeVehicules %}
+                    {% if(not mesVehicules.contains(v) and v.getLocation != "Loué") %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" focusable="false">
+                                    <title>Placeholder</title>
+                                    <rect width="100%" height="100%" fill="#55595c"/>
+                                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                                </svg>
+                                <div class="card-body">
+                                    <h3 class="card-text">{{ v.getType() }}</h3>
+                                    <p>Caractéristiques : {{ v.getCaract() }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="/menuUtilisateur/id={{ client.getId() }}/action=Ajouter({{ v.getId() }})" type="button" class="btn btn-sm btn-outline-secondary">Ajouter</a>
+                                        </div>
+                                        <small class="text-muted">{{ v.getLocation() }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </li>

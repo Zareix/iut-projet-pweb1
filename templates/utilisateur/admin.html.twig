@@ -20,7 +20,7 @@
 </header>
 
 <body>
-<div class="card mx-auto mt-3">
+<div class="card mx-auto mt-3" style="width : 80%">
     <div class="card-header text-center">
         <h2>Menu Loueur</h2>
     </div>
@@ -28,56 +28,51 @@
         <div class="card">
             <h3 class="m-3">Ajouter un véhicule</h3>
             <div class="card-body">
-                <form>
+                <form action='/admin' method="post">
                     <div class="form-group">
                         <label>Type de véhicule</label>
-                        <input type="text" class="form-control">
+                        <input name="type" type="text" class="form-control" value="{{ type }}">
                     </div>
                     <div class="form-group">
                         <label>Quantité</label>
-                        <input type="number" class="form-control">
+                        <input name="quantite" type="number" class="form-control" value="{{ quantite }}">
                     </div>
                     <div class="form-group">
                         <label>Caractéristiques</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Etat de la location</label>
-                        <input type="text" class="form-control">
+                        <input name="caract" type="text" class="form-control" value="{{ caract }}">
                     </div>
                     <div class="form-group mb-3">
-                        <div class="input-group-prepend">
-                            <span>Photo</span>
-                        </div>
-                        <div class="custom-file">
-                            <label class="custom-file-label">Choisissez une photo</label>
-                            <input type="file" class="custom-file-input">
-                        </div>
+                        <label>Photo</label>
+                        <input name="photo" type="text" class="form-control" value="{{ photo }}">
                     </div>
-
+                    <div class="form-group">
+                        <label>Prix</label>
+                        <input name="prix" type="number" class="form-control" value="{{ prix }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2 ml-3">Valider</button>
                 </form>
+                <div id="msg" class="text-danger">
+                    {{ msg }}
+                </div>
             </div>
+
         </div>
         <div class="card">
             <div class="card-body">
                 <h3>Tout les véhicules disponibles</h3>
-                //TODO
                 <div class="row">
-                    {% for i in 0..2 %}
+                    {% for v in listeVehicules %}
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><title>
-                                        Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#55595c"/>
-                                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Photo</text>
-                                </svg>
+                                <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
                                 <div class="card-body">
-                                    <p class="card-text">Description du véhicule</p>
+                                    <h3>{{ v.getType() }}</h3>
+                                    <p class="card-text">{{ v.getCaract() }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-danger btn-outline-secondary">
+                                            <a href="/admin/action=supprimer({{ v.getId() }})" type="button" class="btn btn-danger btn-outline-secondary">
                                                 Supprimer
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +84,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <form action="/connexion" method="post">
+                <form action="/" method="post">
                     <h3>Choisissez une entreprise</h3>
                     <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1">

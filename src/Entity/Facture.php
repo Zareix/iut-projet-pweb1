@@ -32,12 +32,12 @@ class Facture {
     private $dateD;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateF;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $valeur;
 
@@ -45,6 +45,7 @@ class Facture {
      * @ORM\Column(type="boolean")
      */
     private $etat;
+
 
     public function getId(): ?int {
         return $this->id;

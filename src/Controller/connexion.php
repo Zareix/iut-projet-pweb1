@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use http\Client\Curl\User;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -15,7 +16,6 @@ class connexion extends AbstractController {
         $nom = isset($_POST['nom']) ? ($_POST['nom']) : '';
         $mdp = isset($_POST['mdp']) ? ($_POST['mdp']) : '';
         $msg = "";
-
 
         if (count($_POST) == 0) {
             return $this->render('utilisateur/connexion.html.twig', [
