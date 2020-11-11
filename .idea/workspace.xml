@@ -20,21 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21963e1b-8979-4208-90cc-a339bcc912d7" name="Default Changelist" comment="test accueil">
-      <change afterPath="$PROJECT_DIR$/src/FunctionHelper/JsonDecode.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AccueilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/menuUtilisateur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenuUtilisateurController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Vehicule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Vehicule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/photos/208.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accueil/accueil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConnexionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MenuUtilisateurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MenuUtilisateurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/utilisateur/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/utilisateur/connexion.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/connexion.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/utilisateur/menuUtilisateur.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/utilisateur/menuUtilisateur.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +196,10 @@
       <workItem from="1604942175293" duration="17109000" />
       <workItem from="1605097257856" duration="19184000" />
       <workItem from="1605116938464" duration="712000" />
+      <workItem from="1605117865542" duration="492000" />
+      <workItem from="1605127183939" duration="705000" />
+      <workItem from="1605128165032" duration="3813000" />
+      <workItem from="1605132339901" duration="50000" />
     </task>
     <task id="LOCAL-00001" summary="test accueil">
       <created>1602774017523</created>

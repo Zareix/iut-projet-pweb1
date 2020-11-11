@@ -34,10 +34,8 @@ class InscriptionController extends AbstractController {
                     'email' => $email
                 ]);
             else {
-                //session_start();
                 $client = $this->nouvUser($nom, $mdp, $email);
                 return $this->redirectToRoute("accueilAbo", ['id' => $client->getId()]);
-                //return $this->redirectToRoute("accueiltest");
             }
         }
     }
@@ -53,9 +51,9 @@ class InscriptionController extends AbstractController {
             $msg = "Le nom doit être uniquement des lettres.";
             return true;
         } else if ($this->verifmdp($mdp)) {
-            $msg = "Le matricule doit contenir au moins un chiffre et faire plus 8 caractères.";
+            $msg = "Le mot de passe doit contenir au moins un chiffre et faire plus 8 caractères.";
             return true;
-        } else if ($this->verifIdent($nom, $mdp)) {
+        } else if ($this->verifIdent($nom, $email)) {
             $msg = "Utilisateur déjà inscrit.";
             return true;
         }
@@ -86,7 +84,7 @@ class InscriptionController extends AbstractController {
         //Création entité client
         $client = new Client();
         $client->setNom($nom);
-        $client->setMdp($mdp);
+        $client->setMdp(password_hash($mdp, PASSWORD_BCRYPT));
         $client->setEmail($email);
 
         //Prepare l'ajout
@@ -98,12 +96,12 @@ class InscriptionController extends AbstractController {
         return $client;
     }
 
-    function verifIdent($nom, $mdp) {
+    function verifIdent($nom, $email) {
         $repository = $this->getDoctrine()->getRepository(Client::class);
 
         $client = $repository->findOneBy([
             'nom' => $nom,
-            'mdp' => $mdp
+            'email' => $email
         ]);
 
         if ($client)

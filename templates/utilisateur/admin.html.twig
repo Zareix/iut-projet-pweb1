@@ -70,11 +70,13 @@
                                     <p>Prix à la journée : {{ v.getPrix() }}€</p>
                                     <p class="card-text"><small class="text-muted">Quantité : {{ v.getNb() }}</small></p>
                                     <div class="d-flex justify-content-between align-items-center">
+                                        {% if v.getLocation() != "Loué" %}
                                         <div class="btn-group">
                                             <a href="/admin/action=supprimer({{ v.getId() }})" type="button" class="btn btn-danger">
                                                 Supprimer
                                             </a>
                                         </div>
+                                        {% endif %}
                                         <small class="text-muted">{{ v.getLocation() }}</small>
                                     </div>
                                 </div>
@@ -120,14 +122,6 @@
                                         <p class="font-weight-light">Caractéristiques : {{ v.getCaract()|jsonDecode }}</p>
                                         <p>Prix à la journée : {{ v.getPrix() }}€</p>
                                         <p class="card-text"><small class="text-muted">Quantité : {{ v.getNb() }}</small></p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <a href="/admin/action=supprimer({{ v.getId() }})" type="button" class="btn btn-danger">
-                                                    Supprimer
-                                                </a>
-                                            </div>
-                                            <small class="text-muted">{{ v.getLocation() }}</small>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

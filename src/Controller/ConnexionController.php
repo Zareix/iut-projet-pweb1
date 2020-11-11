@@ -34,7 +34,7 @@ class ConnexionController extends AbstractController {
             } else {
                 $client = $this->verifIdent($email, $mdp);
                 if ($client) {
-                    if($client->getEmail() == "admin" && $client->getMdp() == "admin")
+                    if($client->getEmail() == "admin")
                         return $this->redirectToRoute('admin');
                     return $this->redirectToRoute('accueilAbo', ['id' => $client->getId()]);
                 } else {
@@ -55,9 +55,11 @@ class ConnexionController extends AbstractController {
 
         $client = $repository->findOneBy([
             'email' => $email,
-            'mdp' => $mdp
         ]);
 
-        return $client;
+        if(password_verify($mdp, $client->getMdp()))
+            return $client;
+
+        return null;
     }
 }

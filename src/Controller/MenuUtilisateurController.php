@@ -81,6 +81,7 @@ class MenuUtilisateurController extends AbstractController {
             ['idC' => $client->getId(),
             'idV' => $vehicule->getId()]
         );
+
         $facture = $factures[array_key_last($factures)];
 
         $client->removeVehicule($vehicule);
