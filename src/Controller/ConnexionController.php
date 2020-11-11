@@ -8,38 +8,40 @@ use http\Client\Curl\User;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class connexion extends AbstractController {
+class ConnexionController extends AbstractController {
     /**
      * @Route ("/connexion", name="connexion")
      */
     public function Connexion() {
-        $nom = isset($_POST['nom']) ? ($_POST['nom']) : '';
+        $email = isset($_POST['email']) ? ($_POST['email']) : '';
         $mdp = isset($_POST['mdp']) ? ($_POST['mdp']) : '';
         $msg = "";
 
         if (count($_POST) == 0) {
             return $this->render('utilisateur/connexion.html.twig', [
                 'msg' => $msg,
-                'nom' => $nom,
+                'email' => $email,
                 'mdp' => $mdp
             ]);
         } else {
-            if ($nom == "" || $mdp == "") {
+            if ($email == "" || $mdp == "") {
                 $msg = "Tout les champs ne sont pas complet.";
                 return $this->render('utilisateur/connexion.html.twig', [
                     'msg' => $msg,
-                    'nom' => $nom,
+                    'email' => $email,
                     'mdp' => $mdp
                 ]);
             } else {
-                $client = $this->verifIdent($nom, $mdp);
+                $client = $this->verifIdent($email, $mdp);
                 if ($client) {
+                    if($client->getEmail() == "admin" && $client->getMdp() == "admin")
+                        return $this->redirectToRoute('admin');
                     return $this->redirectToRoute('accueilAbo', ['id' => $client->getId()]);
                 } else {
                     $msg = "Utilisateur inconnu";
                     return $this->render('utilisateur/connexion.html.twig', [
                         'msg' => $msg,
-                        'nom' => $nom,
+                        'email' => $email,
                         'mdp' => $mdp
                     ]);
                 }
@@ -48,11 +50,11 @@ class connexion extends AbstractController {
 
     }
 
-    function verifIdent($nom, $mdp) {
+    function verifIdent($email, $mdp) {
         $repository = $this->getDoctrine()->getRepository(Client::class);
 
         $client = $repository->findOneBy([
-            'nom' => $nom,
+            'email' => $email,
             'mdp' => $mdp
         ]);
 

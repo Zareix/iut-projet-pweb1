@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
-class inscription extends AbstractController {
+class InscriptionController extends AbstractController {
     /**
      * @Route ("/inscription", name="inscription")
      */

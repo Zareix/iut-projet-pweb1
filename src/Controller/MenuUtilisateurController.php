@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Date;
 
-class menuUtilisateur extends AbstractController {
+class MenuUtilisateurController extends AbstractController {
     /**
      * @Route ("/menuUtilisateur/id={id}", name="menuUtilisateur", methods={"GET"})
      */
@@ -24,11 +24,46 @@ class menuUtilisateur extends AbstractController {
         $repository = $this->getDoctrine()->getRepository(Vehicule::class);
         $listeVehicules = $repository->findAll();
 
+        $repository = $this->getDoctrine()->getRepository(Facture::class);
+        $mesFactures = $repository->findBy([
+            "idC" => $id
+        ]);
+
+        $vFactures =  [];
+        if(sizeof($mesFactures) > 0){
+            $vFactures = array_fill(0, $mesFactures[array_key_last($mesFactures)]->getId() + 1, new Vehicule());
+            foreach ($mesFactures as $f){
+                foreach($listeVehicules as $v){
+                    if($f->getIdV() == $v->getId())
+                        $vFactures[$f->getId()] = $v;
+                }
+            }
+        }
+
+
         return $this->render("utilisateur/menuUtilisateur.twig", [
             'client' => $client,
+            'mesFactures' => $mesFactures,
+            'vFactures' => $vFactures,
             'mesVehicules' => $mesVehicules,
             'listeVehicules' => $listeVehicules
         ]);
+    }
+
+    /**
+     * @Route ("/menuUtilisateur/id={idC}/action=Regler({idF})", name="aboRegler", methods={"GET"})
+     */
+    public function AboRegler(int $idC, int $idF) {
+        $repository = $this->getDoctrine()->getRepository(Facture::class);
+        $facture = $repository->find($idF);
+
+        $facture->setEtat(1);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($facture);
+        $entityManager->flush();
+
+        return $this->redirect("/menuUtilisateur/id=" . $idC);
     }
 
     /**
@@ -51,7 +86,18 @@ class menuUtilisateur extends AbstractController {
         $client->removeVehicule($vehicule);
 
         $facture->setDateF(new \DateTime());
-        $facture->setValeur(10);
+
+        $diff = abs($facture->getDateF()->getTimestamp() - $facture->getDateD()->getTimestamp());
+        $years = floor($diff / (365*60*60*24));
+        $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+        $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+
+        if($vehicule->getNb() >= 10)
+            $facture->setValeur($days * $vehicule->getPrix() - 1/100);
+        else
+            $facture->setValeur($days * $vehicule->getPrix());
+
+        $facture->setValeur($days * $vehicule->getPrix());
 
         $vehicule->setLocation("Disponible");
 
@@ -61,7 +107,7 @@ class menuUtilisateur extends AbstractController {
         $entityManager->persist($facture);
         $entityManager->flush();
 
-        return $this->redirect("/menuUtilisateur/id=" . $client->getId());
+        return $this->redirect("/menuUtilisateur/id=" . $idC);
     }
 
 
@@ -92,6 +138,6 @@ class menuUtilisateur extends AbstractController {
         $entityManager->persist($facture);
         $entityManager->flush();
 
-        return $this->redirect("/menuUtilisateur/id=" . $client->getId());
+        return $this->redirect("/menuUtilisateur/id=" . $idC);
     }
 }

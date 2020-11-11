@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
     <title>Menu</title>
@@ -20,7 +19,7 @@
 </header>
 
 <body>
-<div class="card mx-auto mt-3" style="width : 80%">
+<div class="card mx-auto mt-3" style="width : 60%">
     <div class="card-header text-center">
         <h2>Menu Loueur</h2>
     </div>
@@ -49,7 +48,7 @@
                         <label>Prix</label>
                         <input name="prix" type="number" class="form-control" value="{{ prix }}">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2 ml-3">Valider</button>
+                    <button type="submit" class="btn btn-primary mb-2 ml-3">Ajouter</button>
                 </form>
                 <div id="msg" class="text-danger">
                     {{ msg }}
@@ -59,21 +58,24 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <h3>Tout les véhicules disponibles</h3>
+                <h3>Tout les véhicules en stock</h3>
                 <div class="row">
                     {% for v in listeVehicules %}
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
                                 <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
                                 <div class="card-body">
-                                    <h3>{{ v.getType() }}</h3>
-                                    <p class="card-text">{{ v.getCaract() }}</p>
+                                    <h3 class="card-text">{{ v.getType() }}</h3>
+                                    <p class="font-weight-light">Caractéristiques : {{ v.getCaract()|jsonDecode }}</p>
+                                    <p>Prix à la journée : {{ v.getPrix() }}€</p>
+                                    <p class="card-text"><small class="text-muted">Quantité : {{ v.getNb() }}</small></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="/admin/action=supprimer({{ v.getId() }})" type="button" class="btn btn-danger btn-outline-secondary">
+                                            <a href="/admin/action=supprimer({{ v.getId() }})" type="button" class="btn btn-danger">
                                                 Supprimer
                                             </a>
                                         </div>
+                                        <small class="text-muted">{{ v.getLocation() }}</small>
                                     </div>
                                 </div>
                             </div>
@@ -84,16 +86,55 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <form action="/" method="post">
-                    <h3>Choisissez une entreprise</h3>
+                <form action="/admin" method="post">
+                    <h3 id="vehiculeClient">Véhicule par client</h3>
                     <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>Entreprise 1</option>
-                            <option>Entreprise 2</option>
+                        <select class="form-control" name="choixClient" id="choixClient">
+                                    <option value="">Sélectionnez un client</option>
+                            {% for c in clients %}
+                                {% if c.getNom() != "admin" %}
+                                    {% if choixClient == c.getId() %}
+                                        <option value="{{ c.getId() }}" selected>{{ c.getNom() }}</option>
+                                    {% else %}
+                                        <option value="{{ c.getId() }}">{{ c.getNom() }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Confirmer</button>
                 </form>
+                {% if vClient is defined %}
+                <div class="card-body">
+                    <h4>Véhicules du client choisi</h4>
+                    <div class="row">
+                        {% if vClient|length == 0 %}
+                            <p>Ce client ne loue aucun véhicule actuellement.</p>
+                        {% endif %}
+                        {% for v in vClient %}
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
+                                    <div class="card-body">
+                                        <h3 class="card-text">{{ v.getType() }}</h3>
+                                        <p class="font-weight-light">Caractéristiques : {{ v.getCaract()|jsonDecode }}</p>
+                                        <p>Prix à la journée : {{ v.getPrix() }}€</p>
+                                        <p class="card-text"><small class="text-muted">Quantité : {{ v.getNb() }}</small></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                <a href="/admin/action=supprimer({{ v.getId() }})" type="button" class="btn btn-danger">
+                                                    Supprimer
+                                                </a>
+                                            </div>
+                                            <small class="text-muted">{{ v.getLocation() }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

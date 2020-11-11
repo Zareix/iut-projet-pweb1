@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
-class index extends AbstractController {
+class AccueilController extends AbstractController {
     /**
      * @Route ("/", name="index")
      */
@@ -51,7 +51,7 @@ class index extends AbstractController {
     /**
      * @Route ("/accueiltest", name="accueiltest")
      */
-    public function Accueiltest() {
+    public function AccueilTest() {
         $client = $_SESSION['client'];
         return $this->render("accueil/accueil.html.twig");
     }

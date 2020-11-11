@@ -21,7 +21,7 @@
 <body>
 <div class="card mx-auto mt-3" style="width : 60%">
     <div class="card-header text-center">
-        <h2>Mon Compte :</h2>
+        <h2>Mon Compte</h2>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -30,10 +30,52 @@
             <p>Email : {{ client.getEmail() }}</p>
         </li>
         <li class="list-group-item">
+            <h3>Mes factures</h3>
+            <ul class="list-group">
+                {% if mesFactures|length == 0 %}
+                    <p>Vous n'avez actuellement aucune facture.</p>
+                {% else %}
+                    {% for f in mesFactures %}
+                        {% if f.getEtat() == 1 %}
+                        <li class="list-group-item ">
+                            <ul class="list-group list-group-horizontal-sm row">
+                                <li class="list-group-item col-3">{{ vFactures[f.getId()].getType }}</li>
+                                <li class="list-group-item col-4">Du {{ f.getDateD()|date('d-m-Y') }} au {{ f.getDateF|date('d-m-Y') }}</li>
+                                <li class="list-group-item col-1">{{ f.getValeur() }}€</li>
+                                <li class="list-group-item col-4">Réglée</li>
+                            </ul>
+                        </li>
+                        {%  elseif f.getDateF() != NULL %}
+                            <li class="list-group-item ">
+                                <ul class="list-group list-group-horizontal-sm row">
+                                    <li class="list-group-item col-3">{{ vFactures[f.getId()].getType }}</li>
+                                    <li class="list-group-item col-4">Du {{ f.getDateD()|date('d-m-Y') }} au {{ f.getDateF|date('d-m-Y') }}</li>
+                                    <li class="list-group-item col-1">{{ f.getValeur() }}€</li>
+                                    <li class="list-group-item col-2">Non réglée</li>
+                                    <li class="list-group-item col-2"><a href="/menuUtilisateur/id={{ client.getId() }}/action=Regler({{ f.getId() }})" type="button" class="btn btn-sm btn-primary">Régler</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="list-group-item ">
+                                <ul class="list-group list-group-horizontal-sm row">
+                                    <li class="list-group-item col-3">{{ vFactures[f.getId()].getType }}</li>
+                                    <li class="list-group-item col-4">Du {{ f.getDateD()|date('d-m-Y') }} (en cours)</li>
+                                    <li class="list-group-item col-1">{% if f.getValeur() == NULL %}-{% else %}{{ f.getValeur() }}{% endif %}€</li>
+                                    <li class="list-group-item col-4">Non réglée</li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </li>
+
+
+        <li class="list-group-item">
             <h2>Mes véhicules</h2>
             <div class="row">
                 {% if(mesVehicules|length == 0) %}
-                    <p class="col-md-4">Vous n'avez aucun véhicule actuellement</p>
+                    <p class="ml-3">Vous n'avez aucun véhicule actuellement en cours de location.</p>
                 {% endif %}
                 {% for v in mesVehicules %}
                     <div class="col-md-4">
@@ -41,11 +83,12 @@
                             <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
                             <div class="card-body">
                                 <h3 class="card-text">{{ v.getType() }}</h3>
-                                <p>Caractéristiques : {{ v.getCaract() }}</p>
+                                <p class="font-weight-light">Caractéristiques : {{ v.getCaract()|jsonDecode }}</p>
+                                <p>Prix à la journée : {{ v.getPrix() }}€</p>
+                                <p class="card-text"><small class="text-muted">Quantité : {{ v.getNb() }}</small></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="/menuUtilisateur/id={{ client.getId() }}/action=Supprimer({{ v.getId() }})" type="button" class="btn btn-sm btn-outline-secondary">Supprimer</a>
-                                        <a href="/menuUtilisateur/id={{ client.getId() }}/action=Modifier({{ v.getId() }})" type="button" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                                        <a href="/menuUtilisateur/id={{ client.getId() }}/action=Supprimer({{ v.getId() }})" type="button" class="btn btn-sm btn-danger">Supprimer</a>
                                     </div>
                                 </div>
                             </div>
@@ -61,17 +104,15 @@
                     {% if(not mesVehicules.contains(v) and v.getLocation != "Loué") %}
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" focusable="false">
-                                    <title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#55595c"/>
-                                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                </svg>
+                                <img class="card-img-top" width="100%" height="225" src="{{ v.getPhoto() }}" alt="photo{{ v.getId() }}">
                                 <div class="card-body">
                                     <h3 class="card-text">{{ v.getType() }}</h3>
-                                    <p>Caractéristiques : {{ v.getCaract() }}</p>
+                                    <p class="font-weight-light">Caractéristiques : {{ v.getCaract()|jsonDecode }}</p>
+                                    <p>Prix à la journée : {{ v.getPrix() }}€</p>
+                                    <p class="card-text"><small class="text-muted">Quantité : {{ v.getNb() }}</small></p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="/menuUtilisateur/id={{ client.getId() }}/action=Ajouter({{ v.getId() }})" type="button" class="btn btn-sm btn-outline-secondary">Ajouter</a>
+                                            <a href="/menuUtilisateur/id={{ client.getId() }}/action=Ajouter({{ v.getId() }})" type="button" class="btn btn-sm btn-primary">Louer</a>
                                         </div>
                                         <small class="text-muted">{{ v.getLocation() }}</small>
                                     </div>
