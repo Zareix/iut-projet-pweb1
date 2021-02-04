@@ -7,6 +7,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "composer/package-versions-deprecated": "^1.11",
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.1",
@@ -30,6 +31,7 @@
         "symfony/process": "*",
         "symfony/property-access": "5.1.*",
         "symfony/property-info": "5.1.*",
+        "symfony/proxy-manager-bridge": "5.1.*",
         "symfony/security-bundle": "*",
         "symfony/serializer": "5.1.*",
         "symfony/string": "*",
@@ -39,8 +41,7 @@
         "symfony/web-link": "*",
         "symfony/yaml": "*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
-      "ext-json": "*"
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^5.1",
